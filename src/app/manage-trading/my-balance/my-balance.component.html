@@ -2,7 +2,7 @@
 
   <div class="col-md-12 col-lg-12 col-xs-12" style="margin-top: 24px">
     <div class="white-box">
-      <h3 class="box-title">Stock Exchange</h3>
+      <h3 class="box-title">My Balance</h3>
       <div class="white-box">
         <div class="table-responsive">
           <table class="table table-hover manage-u-table">
@@ -10,13 +10,11 @@
             <tr>
               <th class="text-center" style="width: 70px">#</th>
               <th style="width: 120px">NAME</th>
-              <th>STATUS</th>
-              <th>ORD. Achat</th>
-              <th>Qté. Achat</th>
-              <th>Achat</th>
-              <th>Vente</th>
-              <th>Qté. Vente</th>
-              <th>ORD. Vente</th>
+              <th>Quantity</th>
+              <th>Ammount</th>
+              <th>Court</th>
+              <th>Last Bought</th>
+              <th>Last Sell</th>
               <th>CLOTURE</th>
               <th>CTO</th>
               <th style="width: 120px">VARIATION</th>
@@ -28,66 +26,61 @@
               <td class="text-center">1</td>
               <td><span class="font-medium">BTE</span>
                 <br/><span class="text-muted">(BTE)</span></td>
-              <td><span class="label label-success label-rouded">OPEN</span></td>
-              <td>200</td>
+              <td>20</td>
+              <td>112,25$</td>
               <td>5.31</td>
               <td>5.33</td>
-              <td>970</td>
-              <td>3</td>
+              <td>~</td>
               <td>5.60</td>
               <td>14.51</td>
-              <td>36.51</td>
-
               <td><p class="text-success">+0.18% <i class="text-success ti-arrow-circle-up"></i></p></td>
-
               <td>
+                <button type="button" class="btn btn-info btn-outline btn-circle btn-lg m-r-5"
+                        (click)="openTradingModal()"><i class="ti-upload"></i>
+                </button>
                 <button type="button" class="btn btn-info btn-outline btn-circle btn-lg m-r-20"
                         (click)="openTradingModal()"><i
                   class="ti-download"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-center">1</td>
+              <td><span class="font-medium">TUNISAIR</span>
+                <br/><span class="text-muted">(TUNISIAR)</span></td>
+              <td>240</td>
+              <td>2120,75$</td>
+              <td>7.31</td>
+              <td>7.33</td>
+              <td>~</td>
+              <td>7.60</td>
+              <td>12.51</td>
+              <td><p class="text-success">+0.08% <i class="text-success ti-arrow-circle-up"></i></p></td>
+              <td>
                 <button type="button" class="btn btn-info btn-outline btn-circle btn-lg m-r-5"
                         (click)="openTradingModal()"><i class="ti-upload"></i>
                 </button>
               </td>
             </tr>
             <tr>
-              <td class="text-center">2</td>
+              <td class="text-center">1</td>
               <td><span class="font-medium">SFBT</span>
                 <br/><span class="text-muted">(SFBT)</span></td>
-              <td><span class="label label-danger label-rouded">CLOSED</span></td>
-              <td>200</td>
+              <td>20</td>
+              <td>112,25$</td>
               <td>5.31</td>
               <td>5.33</td>
-              <td>970</td>
-              <td>3</td>
+              <td>~</td>
               <td>5.60</td>
               <td>14.51</td>
-              <td>36.51</td>
-              <td><p class="text-danger">-0.06% <i class="text-danger ti-arrow-circle-down"></i></p></td>
+              <td><p class="text-danger">-0.18% <i class="text-danger ti-arrow-circle-down"></i></p></td>
               <td>
-                <button type="button" disabled class="btn btn-info btn-outline btn-circle btn-lg m-r-20"><i
-                  class="ti-download"></i></button>
-              </td>
-            </tr>
-            <tr>
-              <td class="text-center">3</td>
-              <td><span class="font-medium">TUNISAIR</span>
-                <br/><span class="text-muted">(TAIR)</span></td>
-              <td><span class="label label-warning label-rouded">GELé</span></td>
-              <td>200</td>
-              <td>5.31</td>
-              <td>5.33</td>
-              <td>970</td>
-              <td>3</td>
-              <td>5.60</td>
-              <td>14.51</td>
-              <td>36.51</td>
-              <td><p class="text-danger">-0.14% <i class="text-danger ti-arrow-circle-down"></i></p></td>
-              <td>
-                <button type="button" disabled class="btn btn-info btn-outline btn-circle btn-lg m-r-20"><i
-                  class="ti-download"></i></button>
-                <button type="button" disabled class="btn btn-info btn-outline btn-circle btn-lg m-r-5"><i
-                  class="ti-upload"></i>
+                <button type="button" class="btn btn-info btn-outline btn-circle btn-lg m-r-5"
+                        (click)="openTradingModal()"><i class="ti-upload"></i>
                 </button>
+                <button type="button" class="btn btn-info btn-outline btn-circle btn-lg m-r-20"
+                        (click)="openTradingModal()"><i
+                  class="ti-download"></i></button>
+
               </td>
             </tr>
             </tbody>

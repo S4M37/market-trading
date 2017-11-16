@@ -1,3 +1,189 @@
-<p>
-  market-performance works! (Hausses, Baisses,...)
-</p>
+<div class="container-fluid">
+  <div class="row bg-title">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+      <h4 class="page-title">Market Performance</h4></div>
+    <!-- /.col-lg-12 -->
+  </div>
+
+  <!-- .row -->
+  <div class="row">
+    <div class="col-md-6 col-lg-6 col-xs-6">
+      <div class="white-box">
+        <h3 class="box-title">Top Hausses</h3>
+        <div class="flot-chart">
+          <div class="flot-chart-content" id="flot-bar-chart-hausses"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-6 col-xs-6">
+      <div class="white-box">
+        <h3 class="box-title">Top Baisses</h3>
+        <div class="flot-chart">
+          <div class="flot-chart-content" id="flot-bar-chart-baisses"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
+
+
+  <!-- .row Top Quantities-->
+  <div class="row">
+    <div class="col-md-6 col-lg-6 col-xs-6">
+      <div class="white-box">
+        <h3 class="box-title">Top Quantities</h3>
+        <div class="flot-chart">
+          <div class="flot-chart-content" id="flot-bar-chart-quantities"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-6 col-xs-6">
+      <div class="white-box">
+        <div class="table-responsive">
+          <table class="table table-hover manage-u-table">
+            <thead>
+            <tr>
+              <th class="text-center" style="width: 70px">#</th>
+              <th style="width: 120px">NAME</th>
+              <th>COURT</th>
+              <th style="width: 120px">VARIATION</th>
+              <th>ACTION</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="text-center">1</td>
+              <td><span class="font-medium">BTE</span>
+                <br/><span class="text-muted">(BTE)</span></td>
+              <td>14.51
+              <td><p class="text-success">+0.18% <i class="ti-arrow-circle-up"></i></p>
+              <td>
+                <button type="button" class="btn btn-info btn-outline btn-circle btn-lg m-r-20"><i
+                  class="ti-download"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-center">1</td>
+              <td><span class="font-medium">SFBT</span>
+                <br/><span class="text-muted">(SFBT)</span></td>
+              <td>4.51
+              <td><p class="text-danger">0.06% <i class="text-danger ti-arrow-circle-down"></i></p>
+              <td>
+                <button type="button" class="btn btn-info btn-outline btn-circle btn-lg m-r-20"><i
+                  class="ti-download"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-center">1</td>
+              <td><span class="font-medium">BTE</span>
+                <br/><span class="text-muted">(BTE)</span></td>
+              <td>14.51
+              <td><p class="text-success">+0.18% <i class="text-success ti-arrow-circle-up"></i></p>
+              <td>
+                <button type="button" class="btn btn-info btn-outline btn-circle btn-lg m-r-20"><i
+                  class="ti-download"></i></button>
+                <button type="button" class="btn btn-info btn-outline btn-circle btn-lg m-r-5"><i class="ti-upload"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-center">1</td>
+              <td><span class="font-medium">TUNISAIR</span>
+                <br/><span class="text-muted">(TAIR)</span></td>
+              <td>14.51
+              <td><p class="text-danger">-0.14% <i class="text-danger ti-arrow-circle-down"></i></p>
+              <td>
+                <button type="button" class="btn btn-info btn-outline btn-circle btn-lg m-r-20"><i
+                  class="ti-download"></i></button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
+
+  <!-- .row Top Volumes-->
+  <div class="row">
+    <div class="col-md-6 col-lg-6 col-xs-6">
+      <div class="white-box">
+        <h3 class="box-title">Top Volumes</h3>
+        <div class="flot-chart">
+          <div class="flot-chart-content" id="flot-bar-chart-volumes"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-6 col-xs-6">
+      <div class="white-box">
+        <div class="table-responsive">
+          <table class="table table-hover manage-u-table">
+            <thead>
+            <tr>
+              <th class="text-center" style="width: 70px">#</th>
+              <th style="width: 120px">NAME</th>
+              <th>COURT</th>
+              <th style="width: 120px">VARIATION</th>
+              <th>ACTION</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="text-center">1</td>
+              <td><span class="font-medium">BTE</span>
+                <br/><span class="text-muted">(BTE)</span></td>
+              <td>14.51
+              <td><p class="text-success">+0.18% <i class="text-success ti-arrow-circle-up"></i></p>
+              <td>
+
+                <button type="button" class="btn btn-info btn-outline btn-circle btn-lg m-r-20"><i
+                  class="ti-download"></i></button>
+                <button type="button" class="btn btn-info btn-outline btn-circle btn-lg m-r-5"><i class="ti-upload"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-center">1</td>
+              <td><span class="font-medium">SFBT</span>
+                <br/><span class="text-muted">(SFBT)</span></td>
+              <td>4.51
+              <td><p class="text-danger">-0.06% <i class="text-danger ti-arrow-circle-down"></i></p>
+              <td>
+                <button type="button" class="btn btn-info btn-outline btn-circle btn-lg m-r-20"><i
+                  class="ti-download"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-center">1</td>
+              <td><span class="font-medium">BTE</span>
+                <br/><span class="text-muted">(BTE)</span></td>
+              <td>14.51
+              <td><p class="text-success">+0.18% <i class="text-success ti-arrow-circle-up"></i></p>
+              <td>
+                <button type="button" class="btn btn-info btn-outline btn-circle btn-lg m-r-20"><i
+                  class="ti-download"></i></button>
+                <button type="button" class="btn btn-info btn-outline btn-circle btn-lg m-r-5"><i class="ti-upload"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-center">1</td>
+              <td><span class="font-medium">TUNISAIR</span>
+                <br/><span class="text-muted">(TAIR)</span></td>
+              <td>14.51
+              <td><p class="text-danger">-0.14% <i class="text-danger ti-arrow-circle-down"></i></p>
+              <td>
+                <button type="button" class="btn btn-info btn-outline btn-circle btn-lg m-r-20"><i
+                  class="ti-download"></i></button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
+  <!-- /.container-fluid -->
+</div>
