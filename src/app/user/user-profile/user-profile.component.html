@@ -2,6 +2,10 @@
   <div class="row bg-title">
     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
       <h4 class="page-title">Votre Profile</h4></div>
+      <button (click)="getPalmaresH()">getPalmaresH</button>
+      <div *ngFor="let palma of palmares">
+        {{palma.nom}}
+      </div>
     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
       <button class="right-side-toggle waves-effect waves-light btn-info btn-circle pull-right m-l-20"><i
         class="ti-settings text-white"></i></button>

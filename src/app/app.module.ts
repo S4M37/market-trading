@@ -1,6 +1,6 @@
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
-
+import {HttpModule} from '@angular/http';
 
 import {AppComponent} from "./app.component";
 import {AppRoutingModule} from "./app.routing";
@@ -26,7 +26,8 @@ import {UserModule} from "./user/user.module";
     SharedModule,
     ErrorModule,
     UserModule,
-    ManageTradingModule
+    ManageTradingModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

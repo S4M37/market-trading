@@ -1,4 +1,6 @@
 import {Component, OnInit} from "@angular/core";
+import {Cours} from '../../cours';
+import {PalmaresService} from '../../shared/services/palmares.service';
 
 declare let jQuery: any;
 
@@ -9,15 +11,41 @@ declare let jQuery: any;
 })
 export class MarketPerformanceComponent implements OnInit {
 
-  constructor() {
+  dataH:string;
+  dataB: any[];
+
+  constructor(private palmaresService : PalmaresService) {
   }
 
   ngOnInit() {
+    this.dataH="[";
+    this.dataB=new Array(5);
+    this.palmaresService.getpalmaresH()
+    .subscribe(res => {
+      let testOne:number = 1;
+      for (let p of res) {
+        console.log(p.nom +p.valeur);
+        this.dataH = this.dataH+"["+1355223600000+","+p.valeur*1000+"]";
+        this.dataB[testOne-1]= new Array(2);
+        this.dataB[testOne-1][0]=1355487300000;
+        this.dataB[testOne-1][1]=8000;
+
+        if (testOne < res.length)
+        {
+          this.dataH += ",";
+          testOne++;
+        }
+    }
+    this.dataH += "]";
+    console.log("data =>"+this.dataH);
+    console.log("dataB => "+JSON.stringify(this.dataB));
+    });
+
     const barOptions = {
       series: {
         bars: {
           show: true,
-          barWidth: 43200000
+          barWidth: 33200000
         }
       },
       xaxis: {
@@ -39,12 +67,7 @@ export class MarketPerformanceComponent implements OnInit {
     const barData_hausses = {
       label: "bar",
       color: "green",
-      data: [
-        [1355223600000, 3000],
-        [1355306400000, 4000],
-        [1355487300000, 2000],
-        [1355571900000, 6000]
-      ]
+      data: JSON.stringify(this.dataB)
     };
     const barData_baisses = {
       label: "bar",
@@ -63,7 +86,8 @@ export class MarketPerformanceComponent implements OnInit {
         [1355223600000, 8000],
         [1355306400000, 4000],
         [1355487300000, 5000],
-        [1355571900000, 1000]
+        [1355571900000, 1000],
+        [1355223600000, 8000]
       ]
     };
     const barData_volumes = {
@@ -83,4 +107,6 @@ export class MarketPerformanceComponent implements OnInit {
 
   }
 
+
+  
 }
