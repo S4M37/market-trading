@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {Cours} from '../../cours';
+import {Cours} from '../../_models/cours';
 import {PalmaresService} from '../../shared/services/palmares.service';
 
 declare let jQuery: any;

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from '../_models/user';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-main-nav',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainNavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  logOut()
+  {
+    localStorage.removeItem('currentUser');
+    this.router.navigate(['/login']);
   }
 
 }

@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from "rxjs/Observable";
 import * as Rx from "rxjs/Rx";
-import {Cours} from '../../cours';
+import {Cours} from '../../_models/cours';
 
 
 @Injectable()
