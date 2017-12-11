@@ -9,12 +9,16 @@ import {Cours} from '../../_models/cours';
 
 @Injectable()
 export class PalmaresService {
+  REST_SERVICE_URI:string;
+  
 
-  constructor(private http:Http) { }
+  constructor(private http:Http) {
+    this.REST_SERVICE_URI = 'http://localhost:8081/palmares';
+   }
 
   getpalmaresH()
   {
-    return this.http.get(`/palmaresH`).map(res => res.json());
+    return this.http.get(this.REST_SERVICE_URI+`/B`).map(res => res.json());
   }
 
   

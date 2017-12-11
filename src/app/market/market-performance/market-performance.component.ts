@@ -22,23 +22,30 @@ export class MarketPerformanceComponent implements OnInit {
     this.dataB=new Array(5);
     this.palmaresService.getpalmaresH()
     .subscribe(res => {
-      let testOne:number = 1;
-      for (let p of res) {
-        console.log(p.nom +p.valeur);
-        this.dataH = this.dataH+"["+1355223600000+","+p.valeur*1000+"]";
-        this.dataB[testOne-1]= new Array(2);
-        this.dataB[testOne-1][0]=1355487300000;
-        this.dataB[testOne-1][1]=8000;
-
-        if (testOne < res.length)
-        {
-          this.dataH += ",";
-          testOne++;
-        }
-    }
-    this.dataH += "]";
-    console.log("data =>"+this.dataH);
-    console.log("dataB => "+JSON.stringify(this.dataB));
+      if (Object.keys(res).length > 0)
+      {
+        let testOne:number = 1;
+        for (let p of res) {
+          console.log(p.nom +p.valeur);
+          this.dataH = this.dataH+"["+1355223600000+","+p.valeur*1000+"]";
+          this.dataB[testOne-1]= new Array(2);
+          this.dataB[testOne-1][0]=1355487300000;
+          this.dataB[testOne-1][1]=8000;
+  
+          if (testOne < res.length)
+          {
+            this.dataH += ",";
+            testOne++;
+          }
+      }
+      this.dataH += "]";
+      console.log("data =>"+this.dataH);
+      console.log("dataB => "+JSON.stringify(this.dataB));
+      }
+      else{
+        console.log("ERROR");
+      }
+     
     });
 
     const barOptions = {
