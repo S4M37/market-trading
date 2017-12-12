@@ -9,31 +9,28 @@
             <thead>
             <tr>
               <th class="text-center" style="width: 70px">#</th>
-              <th style="width: 120px">NAME</th>
+              <th style="width: 120px">Court</th>
               <th>Quantity</th>
               <th>Ammount</th>
-              <th>Court</th>
-              <th>Last Bought</th>
-              <th>Last Sell</th>
+              <th>Average Unit Price</th>
               <th>CLOTURE</th>
-              <th>CTO</th>
               <th style="width: 120px">VARIATION</th>
               <th>ACTION</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td class="text-center">1</td>
-              <td><span class="font-medium">BTE</span>
-                <br/><span class="text-muted">(BTE)</span></td>
-              <td>20</td>
-              <td>112,25$</td>
-              <td>5.31</td>
-              <td>5.33</td>
-              <td>~</td>
-              <td>5.60</td>
-              <td>14.51</td>
-              <td><p class="text-success">+0.18% <i class="text-success ti-arrow-circle-up"></i></p></td>
+            <tr *ngFor="let walletItem of wallet;let i=index">
+              <td class="text-center">{{i+1}}</td>
+              <td><span class="font-medium">{{walletItem.courtChange.name}}</span>
+                <br/><span class="text-muted">{{walletItem.courtChange.name}}</span></td>
+              <td>{{walletItem.quantity}}</td>
+              <td>{{walletItem.quantity*walletItem.init_price}}$</td>
+              <td>{{walletItem.init_price}}$</td>
+              <td>{{walletItem.courtChange.close}}$</td>
+              <td><p class="{{walletItem.courtChange.variation>0?'text-success':'text-danger'}}">
+                {{walletItem.courtChange.variation}}% <i
+                class="{{walletItem.courtChange.variation>0?'text-success ti-arrow-circle-up':'text-danger ti-arrow-circle-down'}}"></i>
+              </p></td>
               <td>
                 <button type="button" class="btn btn-info btn-outline btn-circle btn-lg m-r-5"
                         (click)="openTradingModal()"><i class="ti-upload"></i>
@@ -43,25 +40,7 @@
                   class="ti-download"></i></button>
               </td>
             </tr>
-            <tr>
-              <td class="text-center">1</td>
-              <td><span class="font-medium">TUNISAIR</span>
-                <br/><span class="text-muted">(TUNISIAR)</span></td>
-              <td>240</td>
-              <td>2120,75$</td>
-              <td>7.31</td>
-              <td>7.33</td>
-              <td>~</td>
-              <td>7.60</td>
-              <td>12.51</td>
-              <td><p class="text-success">+0.08% <i class="text-success ti-arrow-circle-up"></i></p></td>
-              <td>
-                <button type="button" class="btn btn-info btn-outline btn-circle btn-lg m-r-5"
-                        (click)="openTradingModal()"><i class="ti-upload"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
+            <!--<tr>
               <td class="text-center">1</td>
               <td><span class="font-medium">SFBT</span>
                 <br/><span class="text-muted">(SFBT)</span></td>
@@ -82,7 +61,7 @@
                   class="ti-download"></i></button>
 
               </td>
-            </tr>
+            </tr>-->
             </tbody>
           </table>
         </div>

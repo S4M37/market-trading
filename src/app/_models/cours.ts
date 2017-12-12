@@ -1,5 +1,5 @@
 export class Cours {
-    nom: string;
-    valeur: string;
-    variation:string ;
+  nom: string;
+  valeur: string;
+  variation: string;
 }

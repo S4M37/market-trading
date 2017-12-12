@@ -1,12 +1,13 @@
-import { Injectable } from "@angular/core";
+import {Injectable} from "@angular/core";
 import {Observable} from "rxjs/Observable";
+import {HttpHeaders} from "@angular/common/http";
 
 @Injectable()
 export class GenericService {
-  headers: Headers;
+  headers: HttpHeaders;
 
   constructor() {
-    this.headers = new Headers();
+    this.headers = new HttpHeaders();
     this.headers.append("Content-Type", "application/json");
 
   }
@@ -27,7 +28,7 @@ export class GenericService {
     console.log("statusText " + error.statusText);
     console.log("url " + error.url);
     console.log("headers " + JSON.stringify(error.headers));
-    console.log(JSON.stringify(error.json()));
+    console.log(JSON.stringify(error));
     console.log("**** error *****");
     return Observable.throw(error);
   }

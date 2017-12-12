@@ -1,6 +1,6 @@
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
-import {HttpModule} from '@angular/http';
+import {HttpModule} from "@angular/http";
 
 import {AppComponent} from "./app.component";
 import {AppRoutingModule} from "./app.routing";
@@ -11,6 +11,11 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 import {ErrorModule} from "./error/error.module";
 import {ManageTradingModule} from "./manage-trading/manage-trading.module";
 import {UserModule} from "./user/user.module";
+import {MarketService} from "./shared/services/market.service";
+import {FixService} from "./shared/services/fix.service";
+import {PalmaresService} from "./shared/services/palmares.service";
+import {UserService} from "./shared/services/user.service";
+import {StorageService} from "./shared/services/storage.service";
 
 
 @NgModule({
@@ -29,7 +34,13 @@ import {UserModule} from "./user/user.module";
     ManageTradingModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    MarketService,
+    FixService,
+    PalmaresService,
+    UserService,
+    StorageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

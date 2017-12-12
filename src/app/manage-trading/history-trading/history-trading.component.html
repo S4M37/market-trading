@@ -13,24 +13,20 @@
               <th>C</th>
               <th>TYPE</th>
               <th>DATE</th>
+              <th>STATUS</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td>TUNISAIR</td>
-              <td>200</td>
-              <td>51.23</td>
-              <td><span class="label label-info label-rouded">ORDER LIMIT</span></td>
-              <td>il y'a 1 heure</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>SFBT</td>
-              <td>150</td>
-              <td>5.423</td>
-              <td><span class="label label-danger label-rouded">ATP</span></td>
-              <td>November 01, 2017</td>
-              <td></td>
+            <tr *ngFor="let userOrderItem of orderHistory;let i=index">
+              <td>{{userOrderItem.courtChange.name}}</td>
+              <td>{{userOrderItem.quantity}}</td>
+              <td>{{userOrderItem.price}}</td>
+              <td><span class="label label-info label-rouded">{{userOrderItem.orderType.name}}</span></td>
+              <td>{{userOrderItem.created_at}}</td>
+              <td><span class="label {{userOrderItem.canceled_at!==null?'label-warning':
+                userOrderItem.terminated_at!==null?'label-success':'label-info'}} label-rouded">{{userOrderItem.canceled_at!==null?'canceled':
+                userOrderItem.terminated_at!==null?'terminated':"in process"}}</span>
+              </td>
             </tr>
             </tbody>
           </table>

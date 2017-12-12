@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-
+import {UserService} from "../../shared/services/user.service";
 
 
 declare let swal: any;
@@ -12,13 +12,24 @@ declare let jQuery: any;
 })
 export class CurrentTradingComponent implements OnInit {
 
-  
+  carnetOrder: { [index: string]: any; } = {};
+  courts: Array<string> = [];
 
-  constructor() {
+  constructor(private userService: UserService) {
   }
 
   ngOnInit() {
-    
+    this.getUserCarnetOrder();
+
+  }
+
+  private getUserCarnetOrder() {
+    this.userService.getUserCarnetOrder().subscribe(data => {
+      this.carnetOrder = data;
+      for (let key in this.carnetOrder) {
+        this.courts.push(key);
+      }
+    });
   }
 
   deleteOrder() {
