@@ -1,5 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 
+
+
 declare let swal: any;
 declare let jQuery: any;
 
@@ -10,10 +12,13 @@ declare let jQuery: any;
 })
 export class CurrentTradingComponent implements OnInit {
 
+  
+
   constructor() {
   }
 
   ngOnInit() {
+    
   }
 
   deleteOrder() {
@@ -42,4 +47,6 @@ export class CurrentTradingComponent implements OnInit {
         }
       });
   }
+
+
 }

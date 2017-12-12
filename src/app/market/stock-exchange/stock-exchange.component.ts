@@ -1,4 +1,7 @@
 import {Component, OnInit} from "@angular/core";
+import {FixService} from '../../shared/services/fix.service';
+import {Order} from '../../_models/order';
+
 
 declare let jQuery: any;
 declare let swal: any;
@@ -11,10 +14,13 @@ declare let PNotify: any;
 })
 export class StockExchangeComponent implements OnInit {
 
-  constructor() {
+  newOrder:Order;
+
+  constructor(private fixService:FixService) {
   }
 
   ngOnInit() {
+    this.newOrder=new Order();
   }
 
   openTradingModal() {
@@ -27,15 +33,32 @@ export class StockExchangeComponent implements OnInit {
   }
 
   sendOrder() {
-    jQuery("#modalTrading").modal("hide");
-    jQuery.toast({
-      heading: "Success",
-      text: "Your order is sent ...",
-      position: "top-right",
-      loaderBg: "#fff",
-      icon: "success",
-      hideAfter: 3500,
-      stack: 6
-    });
+    var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    var order = new Order();
+    order.id_user=currentUser.id;
+    order.exec="No";
+    order.id_cours = 0;
+    order.type=1;
+    order.exec="ATP";
+    order.qte=20;
+    order.prix=50;
+    this.fixService.passNewOrder(order).subscribe(
+      res => {
+      console.log(res);
+        //Default code
+      jQuery("#modalTrading").modal("hide");
+      jQuery.toast({
+        heading: "Success",
+        text: "Your order is sent ...",
+        position: "top-right",
+        loaderBg: "#fff",
+        icon: "success",
+        hideAfter: 3500,
+        stack: 6
+      });
+
+
+      });
+    
   }
 }
