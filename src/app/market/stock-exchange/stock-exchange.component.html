@@ -39,10 +39,10 @@
 
               <td>
                 <button type="button" class="btn btn-info btn-outline btn-circle btn-lg m-r-20"
-                        (click)="openTradingModal()"><i
+                        (click)="openTradingModal(1,courtChange.id)"><i
                   class="ti-download"></i></button>
                 <button type="button" class="btn btn-info btn-outline btn-circle btn-lg m-r-5"
-                        (click)="openTradingModal()"><i class="ti-upload"></i>
+                        (click)="openTradingModal(0,courtChange.id)"><i class="ti-upload"></i>
                 </button>
               </td>
             </tr>
@@ -83,7 +83,7 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
             aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="exampleModalLabel1">Trading Modal (Achat)</h4></div>
+          <h4 class="modal-title" id="exampleModalLabel1">Trading Modal ({{orderType}})</h4></div>
         <div class="modal-body">
           <form class="form-material">
             <div class="form-group">
@@ -92,11 +92,11 @@
                   <label for="type" class="control-label">Type</label>
                   <select type="number" class="form-control" id="type">
                     <option disabled></option>
-                    <option>ATP</option>
-                    <option>ORDER LIMIT</option>
-                    <option>ORDER OUV</option>
-                    <option>ORDER APPLCIATION</option>
-                    <option>ORDER MEILLEUR LIMITE</option>
+                    <option value="1">ATP</option>
+                    <option value="2">ORDER LIMIT</option>
+                    <option value="5">ORDER OUV</option>
+                    <option value="3">ORDER APPLCIATION</option>
+                    <option value="4">ORDER MEILLEUR LIMITE</option>
                   </select>
                 </div>
                 <div class="col-md-6">
@@ -118,7 +118,8 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="court" class="control-label"> Court</label>
-                    <input type="number" class="form-control" placeholder="$$$,$$" id="court">
+                    <input type="number" class="form-control" placeholder="$$$,$$" ([ngModel])="orderRequest.price"
+                           id="court">
                   </div>
                 </div>
               </div>

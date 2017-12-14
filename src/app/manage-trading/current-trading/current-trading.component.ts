@@ -26,7 +26,7 @@ export class CurrentTradingComponent implements OnInit {
   private getUserCarnetOrder() {
     this.userService.getUserCarnetOrder().subscribe(data => {
       this.carnetOrder = data;
-      for (let key in this.carnetOrder) {
+      for (const key in this.carnetOrder) {
         this.courts.push(key);
       }
     });

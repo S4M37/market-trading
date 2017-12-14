@@ -3,6 +3,8 @@ import {FixService} from "../../shared/services/fix.service";
 import {Order} from "../../_models/order";
 import {MarketService} from "../../shared/services/market.service";
 import {CourtChange} from "../../_models/court-change";
+import {OrderRequest} from "../../_models/order-request";
+import {Router} from "@angular/router";
 
 
 declare let jQuery: any;
@@ -19,7 +21,7 @@ export class StockExchangeComponent implements OnInit {
   newOrder: Order;
   courtChanges: Array<CourtChange>;
 
-  constructor(private fixService: FixService, private marketService: MarketService) {
+  constructor(private fixService: FixService, private marketService: MarketService, private router: Router) {
   }
 
   ngOnInit() {
@@ -34,18 +36,47 @@ export class StockExchangeComponent implements OnInit {
     });
   }
 
-  openTradingModal() {
+  orderRequest: OrderRequest = new OrderRequest();
+  orderType: string;
+
+  openTradingModal(orderType: number, id_court: number) {
+    this.orderRequest.type = orderType;
+    this.orderRequest.id_court = id_court;
+    if (orderType === 0) {
+      this.orderType = "vente";
+    } else {
+      this.orderType = "achat";
+    }
+    const baseContext = this;
     jQuery("#modalTrading").modal();
     jQuery("#range_01").ionRangeSlider({
       min: 0,
       max: 1000,
-      from: 100
+      from: 100,
+      onChange: function (data) {
+        baseContext.orderRequest.quantity = data.from;
+      }
     });
   }
 
   sendOrder() {
     const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    const order = new Order();
+    this.orderRequest.id_order_type = jQuery("#type").val();
+    console.log(JSON.stringify(this.orderRequest));
+    this.marketService.newOrder(this.orderRequest, currentUser.id).subscribe(data => {
+      jQuery("#modalTrading").hide();
+      jQuery.toast({
+        heading: "Created",
+        text: "Your order is created...",
+        position: "top-right",
+        loaderBg: "#fff",
+        icon: "success",
+        hideAfter: 3500,
+        stack: 6
+      });
+      this.router.navigate(["/trading/current"]);
+    });
+    /*const order = new Order();
     order.id_user = currentUser.id;
     order.exec = "No";
     order.id_cours = 0;
@@ -67,9 +98,6 @@ export class StockExchangeComponent implements OnInit {
           hideAfter: 3500,
           stack: 6
         });
-
-
-      });
-
+      });*/
   }
 }
